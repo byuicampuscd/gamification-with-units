@@ -140,8 +140,6 @@ valence.run(function(err, data) {
                 }
             }
         }
-
-        // Sort validCategories by UnitNumber
     } else {
         console.log("ERROR");
     }
