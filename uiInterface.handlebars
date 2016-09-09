@@ -1,0 +1,141 @@
+<div class="wrapper">
+<h1>{{studentName}}</h1>
+<div class="units">
+{{!#each units}}
+   <div class="unit">
+        <div class="unitSection">
+           <div class="unitContainer container">
+                    <div class="unitGrade" style="left:calc({{requiredPer}}%  * 0.7 + {{optionalPer}}% * 0.3 - 0.5%)"><div class="down arrow">{{unitGrade}}</div></div>
+                <div class="unitBar bar">
+                    <div class="innerBar" style="width:calc(({{requiredPer}}% - 6px) * 0.7)"></div>
+                    <div class="innerBar" style="width:calc(({{optionalPer}}% - 6px) * 0.3 )"></div>
+                </div>
+                <p>{{name}}</p>
+            </div>
+        </div>
+        <div class="keySection">
+            <div class="requiredContainer">
+                <div class="reqiredBar bar">
+                    <div class="innerBar" style="width:calc({{requiredPer}}% - 6px)"></div>
+                </div>
+                <p>Required</p>
+            </div>
+            <div class="optionalContainer">
+                <div class="optionalBar bar">
+                    <div class="innerBar" style="width:calc({{optionalPer}}% - 6px)"></div>
+                </div>
+                <p>Optional</p>
+            </div>
+        </div> 
+   </div>
+{{!/each}} 
+{{#each units}}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+    <g id="bg">
+        <rect width="900" height="400" class="bgDark" />
+    </g>
+    <g id="everythingElse">
+        <!--  bg  -->
+        <rect x="90.4" y="157.5" width="486.4" height="48.3" class="bgDark" />
+        
+        <!--  light gray box in bg and lines on sides  -->
+        <path d="M859 27.2v21.3 303 21.3h-5.6H46.7 41v-21.3 -303V27.2h5.6 806.6H859M862.4 23.8H859h-5.6H46.7 41h-3.4v3.4 21.3 303 21.3 3.4H41h5.6 806.6 5.6 3.4v-3.4 -21.3 -303V27.2 23.8L862.4 23.8z" fill="#4C4C4D" />
+        <line x1="28.8" y1="23.6" x2="28.8" y2="376.6" class="bgLight" />
+        <line x1="871.2" y1="23.6" x2="871.2" y2="376.6" class="bgLight" />
+        
+        <!--paths-->
+<!--        <path d="M574.3 160v43.2H93V160H574.3M580.2 154.1h-3.4H90.4 87v3.4 48.3 3.4h3.4 486.4 3.4v-3.4 -48.3V154.1L580.2 154.1z" class="bgLight" />-->
+<!--        <path d="M574.3 279.2v43.2H417.8v-43.2H574.3M580.2 273.3h-2.4H414.2h-2.4v3.4 48.3 3.4h2.4 163.6 2.4v-3.4 -48.3V273.3L580.2 273.3z" class="green" />-->
+<!--        <path d="M387.8 279.2v43.2H93v-43.2H387.8M393.fillUnitOptional7 273.3h-4.4 -298H87v3.4 48.3 3.4h4.4 298 4.4v-3.4 -48.3V273.3L393.7 273.3z" class="bgLight" />-->
+         
+        <!-- fills -->
+        <rect x="93" y="162.5" width="{{width (fillUnitRequired) 93}}" height="38.5" class="green" />
+        <rect x="{{fillUnitRequired}}" y="162.5" width="{{widthUnitOptional}}" height="38.5" class="blue" />
+        <rect x="93" y="282" width="{{width (fillRequired) 93}}" height="38" class="green" />
+        <rect x="418" y="282" width="{{width (fillOptional) 418}}" height="38" class="blue" />
+        
+        <!-- white outlines -->
+        <path d="M580.2 154.1v3.4 48.3 3.4h-3.4H90.4 87v-3.4 -48.3 -3.4h3.4 486.4H580.2M583.6 150.7h-3.4 -3.4H90.4 87h-3.4v3.4 3.4 48.3 3.4 3.4H87h3.4 486.4 3.4 3.4v-3.4 -3.4 -48.3 -3.4V150.7L583.6 150.7z" class="white" />
+        <path d="M393.7 273.3v3.4 48.3 3.4h-4.4 -298H87v-3.4 -48.3 -3.4h4.4 298H393.7M397.1 269.9h-3.4 -4.4 -298H87h-3.4v3.4 3.4 48.3 3.4 3.4H87h4.4 298 4.4 3.4v-3.4 -3.4 -48.3 -3.4V269.9L397.1 269.9z" class="white" />
+        <path d="M580.2 273.3v3.4 48.3 3.4h-2.4H414.2h-2.4v-3.4 -48.3 -3.4h2.4 163.6H580.2M583.6 269.9h-3.4 -2.4H414.2h-2.4 -3.4v3.4 3.4 48.3 3.4 3.4h3.4 2.4 163.6 2.4 3.4v-3.4 -3.4 -48.3 -3.4V269.9L583.6 269.9z" class="white" />
+        <text transform="matrix(0.83 0 0 1 93.1226 65.3384)" font-size="31" class="white">
+            {{name}}
+        </text>
+        <text transform="matrix(0.83 0 0 0.9 93.1226 80.7705)" font-size="15" class="white">
+            UNIT {{@index}}
+        </text>
+        <path d="M821 154.1v10.8 152.7 10.8h-1.4H624.4 623v-10.8V164.8v-10.8h1.4 195.3H821M824.4 150.7H821h-1.4H624.4 623h-3.4v3.4 10.8 152.7 10.8 3.4h3.4 1.4 195.3 1.4 3.4v-3.4 -10.8V164.8v-10.8V150.7L824.4 150.7z" class="white" />
+        <text transform="matrix(0.83 0 0 1 624.7793 144.043)" font-size="30.6015" class="white">
+            UNIT GRADE
+        </text>
+        <g id="unitPercent">
+            {{#if unitGrade}}
+            <text  x="575" y="200" text-anchor="end" font-size="47" class="white">
+                {{unitPercent}}%
+            </text>
+            {{/if}}
+        </g>
+        <text transform="matrix(0.83 0 0 1 92.2095 124.043)" font-size="30.6015" class="white">
+            UNIT PROGRESS
+        </text>
+        <text transform="matrix(0.83 0 0 1 92.2095 354.7305)" font-size="23.8012" class="green">
+            MANDATORY
+        </text>
+        <text transform="matrix(0.83 0 0 1 295.9746 319.7305)" font-size="18" class="white">
+            70% WEIGHT
+        </text>
+        <text transform="matrix(0.83 0 0 1 417.2085 354.7305)" font-size="23.8012" class="lightBlue">
+            ELECTIVE
+        </text>
+        <text transform="matrix(0.83 0 0 1 483.9746 319.7305)" font-size="18" class="white">
+            30% WEIGHT
+        </text>
+    </g>
+    <g id="unitStatus">
+        <text transform="matrix(0.83 0 0 1 725.3721 354.7305)" font-size="23.8012" class="white">
+            PASSING 
+        </text>
+    </g>
+    <g id="unitGrade">
+        <text  transform="scale(0.96)" x="750" y="310" text-anchor="middle" font-size="170" letter-spacing="-4.2" class="white">
+            {{unitGrade}}
+        </text>
+    </g>
+    <g id="unitMandatory" transform="translate({{fillUnitRequired}} 144.043)">
+        <text transform="scale(0.83 1)" text-anchor="middle"  font-size="20" class="green">
+            {{#if unitGrade}}
+                {{unitRequiredTop}}&#x2F;70
+            {{/if}}
+        </text>
+        <polygon points="-14 2 14 2 0 10" class="green triangle" />
+    </g>
+    <g id="unitElective" transform="translate(403 233)" >
+        <text transform="scale(0.83 1)" text-anchor="middle" font-size="20" class="lightBlue">
+            {{#if unitGrade}}
+                {{unitOptionalTop}}&#x2F;30
+            {{/if}}
+        </text>
+        <polygon points="-14 -16 14 -16 0 -24" class="lightBlue triangle" />
+    </g>
+    <g id="mandatory" class="pointer" transform="translate({{fillRequired}} 264)">
+        <text transform="scale(0.83 1)" text-anchor="middle" font-size="20"  class="green">
+            {{#if unitGrade}}
+                {{requiredTop}}&#x2F;{{requiredBottom}}
+            {{/if}}
+        </text>
+        <polygon points="-14 2 14 2 0 10" class="green triangle" />
+    </g>
+    <g id="elective" transform="translate({{fillOptional}} 264.25)">
+        <text  transform="scale(0.83 1)" text-anchor="middle" font-size="20" class="lightBlue">
+            {{#if unitGrade}}
+                {{optionalTop}}&#x2F;{{optionalBottom}}
+            {{/if}}
+        </text>
+        <polygon points="-14 2 14 2 0 10" class="lightBlue triangle" />
+    </g>
+</svg>
+
+{{/each}}
+</div>
+<img src="ui.jpg">
+</div>
