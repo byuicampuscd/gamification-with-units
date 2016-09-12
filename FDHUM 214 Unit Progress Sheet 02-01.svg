@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 900 400" enable-background="new 0 0 900 400" xml:space="preserve">
+<g id="bg">
+	<rect fill="#303030" width="900" height="400"/>
+</g>
+<g id="everythingElse">
+	<g>
+		<g>
+			<path fill="#4C4C4D" d="M859,27.2v21.3v303v21.3h-5.6H46.7H41v-21.3v-303V27.2h5.6h806.6H859 M862.4,23.8H859h-5.6H46.7H41h-3.4
+				v3.4v21.3v303v21.3v3.4H41h5.6h806.6h5.6h3.4v-3.4v-21.3v-303V27.2V23.8L862.4,23.8z"/>
+		</g>
+	</g>
+	<line fill="none" stroke="#4C4C4D" stroke-width="4.7832" stroke-miterlimit="10" x1="28.8" y1="23.6" x2="28.8" y2="376.6"/>
+	<line fill="none" stroke="#4C4C4D" stroke-width="4.7832" stroke-miterlimit="10" x1="871.2" y1="23.6" x2="871.2" y2="376.6"/>
+	<rect x="90.4" y="276.7" fill="#40B871" width="143.1" height="48.3"/>
+	<rect x="90.4" y="157.5" fill="#303030" width="486.4" height="48.3"/>
+	<rect x="90.4" y="157.5" fill="#40B871" width="212.5" height="48.3"/>
+	<rect x="302.9" y="157.5" fill="#2371B9" width="122.3" height="48.3"/>
+	<rect x="415.1" y="276.7" fill="#2371B9" width="89.9" height="48.3"/>
+	<g>
+		<g>
+			<path fill="#303030" d="M574.3,160v43.2H93V160H574.3 M580.2,154.1h-3.4H90.4H87v3.4v48.3v3.4h3.4h486.4h3.4v-3.4v-48.3V154.1
+				L580.2,154.1z"/>
+		</g>
+	</g>
+	<g>
+		<g>
+			<path fill="#303030" d="M387.8,279.2v43.2H93v-43.2H387.8 M393.7,273.3h-4.4h-298H87v3.4v48.3v3.4h4.4h298h4.4v-3.4v-48.3V273.3
+				L393.7,273.3z"/>
+		</g>
+	</g>
+	<g>
+		<g>
+			<path fill="#303030" d="M574.3,279.2v43.2H417.8v-43.2H574.3 M580.2,273.3h-2.4H414.2h-2.4v3.4v48.3v3.4h2.4h163.6h2.4v-3.4
+				v-48.3V273.3L580.2,273.3z"/>
+		</g>
+	</g>
+	<text transform="matrix(0.83 0 0 1 92.2095 354.7305)" fill="#40B871" font-family="'Roboto-Black'" font-size="23.8012">MANDATORY</text>
+	<text transform="matrix(0.83 0 0 1 417.2085 354.7305)" fill="#51A7DD" font-family="'Roboto-Black'" font-size="23.8012">ELECTIVE</text>
+	<g>
+		<path fill="#E5DED6" d="M580.2,154.1v3.4v48.3v3.4h-3.4H90.4H87v-3.4v-48.3v-3.4h3.4h486.4H580.2 M583.6,150.7h-3.4h-3.4H90.4H87
+			h-3.4v3.4v3.4v48.3v3.4v3.4H87h3.4h486.4h3.4h3.4v-3.4v-3.4v-48.3v-3.4V150.7L583.6,150.7z"/>
+	</g>
+	<g>
+		<g>
+			<path fill="#E5DED6" d="M393.7,273.3v3.4v48.3v3.4h-4.4h-298H87v-3.4v-48.3v-3.4h4.4h298H393.7 M397.1,269.9h-3.4h-4.4h-298H87
+				h-3.4v3.4v3.4v48.3v3.4v3.4H87h4.4h298h4.4h3.4v-3.4v-3.4v-48.3v-3.4V269.9L397.1,269.9z"/>
+		</g>
+	</g>
+	<g>
+		<g>
+			<path fill="#E5DED6" d="M580.2,273.3v3.4v48.3v3.4h-2.4H414.2h-2.4v-3.4v-48.3v-3.4h2.4h163.6H580.2 M583.6,269.9h-3.4h-2.4
+				H414.2h-2.4h-3.4v3.4v3.4v48.3v3.4v3.4h3.4h2.4h163.6h2.4h3.4v-3.4v-3.4v-48.3v-3.4V269.9L583.6,269.9z"/>
+		</g>
+	</g>
+	<text transform="matrix(0.83 0 0 1 92.2095 124.043)" fill="#E5DED6" font-family="'Roboto-Black'" font-size="30.6015">UNIT PROGRESS</text>
+	<text transform="matrix(0.83 0 0 0.9 93.1226 80.7705)" fill="#E5DED6" font-family="'Roboto-Black'" font-size="15">PROPAGANDA IN AMERICA</text>
+	<g>
+		<g>
+			<path fill="#E5DED6" d="M821,154.1v10.8v152.7v10.8h-1.4H624.4H623v-10.8V164.8v-10.8h1.4h195.3H821 M824.4,150.7H821h-1.4H624.4
+				H623h-3.4v3.4v10.8v152.7v10.8v3.4h3.4h1.4h195.3h1.4h3.4v-3.4v-10.8V164.8v-10.8V150.7L824.4,150.7z"/>
+		</g>
+	</g>
+	<text transform="matrix(0.83 0 0 1 624.7793 144.043)" fill="#E5DED6" font-family="'Roboto-Black'" font-size="30.6015">UNIT GRADE</text>
+	<text transform="matrix(0.83 0 0 1 93.1226 65.3384)" fill="#E5DED6" font-family="'Roboto-Black'" font-size="31">UNIT 5</text>
+	<text transform="matrix(0.83 0 0 1 295.9746 319.7305)" fill="#E5DED6" font-family="'Roboto-Black'" font-size="18">70% WEIGHT</text>
+	<text transform="matrix(0.83 0 0 1 483.9746 319.7305)" fill="#E5DED6" font-family="'Roboto-Black'" font-size="18">30% WEIGHT</text>
+</g>
+<g id="unitStatus">
+	<text transform="matrix(0.83 0 0 1 725.3721 354.7305)" fill="#E5DED6" font-family="'Roboto-Black'" font-size="23.8012">PASSING</text>
+</g>
+<g id="unitGrade">
+	
+		<text transform="matrix(0.96 0 0 1 667.6533 301.8086)" fill="#E5DED6" font-family="'Roboto-Black'" font-size="170" letter-spacing="-4.2">C</text>
+</g>
+<g id="elective">
+	<g>
+		<text transform="matrix(0.83 0 0 1 473.0111 264.25)" fill="#51A7DD" font-family="'Roboto-Black'" font-size="20">170/300</text>
+	</g>
+	<g>
+		<polygon fill="#51A7DD" points="493.4,266.3 518.8,266.3 506.1,274.5 		"/>
+		<g>
+			<path fill="#303030" d="M515.4,267.3l-9.3,6l-9.3-6h9.3H515.4 M522.2,265.3h-6.8h-9.3h-9.3H490l5.7,3.7l9.3,6l1.1,0.7l1.1-0.7
+				l9.3-6L522.2,265.3L522.2,265.3z"/>
+		</g>
+	</g>
+</g>
+<g id="unitPercent">
+	<text transform="matrix(0.83 0 0 1 466.9448 200.1787)" fill="#E5DED6" font-family="'Roboto-Black'" font-size="47">72.6%</text>
+</g>
+<g id="mandatory">
+	<text transform="matrix(0.83 0 0 1 201.5438 264.25)" fill="#40B871" font-family="'Roboto-Black'" font-size="20">229/500</text>
+	<g>
+		<polygon fill="#40B871" points="220.4,266.3 245.8,266.3 233.1,274.5 		"/>
+		<path fill="#303030" d="M242.4,267.3l-9.3,6l-9.3-6h9.3H242.4 M249.2,265.3h-6.8h-9.3h-9.3H217l5.7,3.7l9.3,6l1.1,0.7l1.1-0.7
+			l9.3-6L249.2,265.3L249.2,265.3z"/>
+	</g>
+</g>
+<g id="unitMandatory">
+	<g>
+		<text transform="matrix(0.83 0 0 1 280.3597 144.043)" fill="#40B871" font-family="'Roboto-Black'" font-size="20">32/70</text>
+	</g>
+	<g>
+		<polygon fill="#40B871" points="289.9,146.1 315.3,146.1 302.6,154.3 		"/>
+		<path fill="#303030" d="M311.9,147.1l-9.3,6l-9.3-6h9.3H311.9 M318.7,145.1h-6.8h-9.3h-9.3h-6.8l5.7,3.7l9.3,6l1.1,0.7l1.1-0.7
+			l9.3-6L318.7,145.1L318.7,145.1z"/>
+	</g>
+</g>
+<g id="unitElective">
+	<g>
+		<text transform="matrix(0.83 0 0 1 402.7227 233.2422)" fill="#51A7DD" font-family="'Roboto-Black'" font-size="20">17/30</text>
+	</g>
+	<g>
+		<polygon fill="#51A7DD" points="412.5,216.5 425.2,208.3 437.9,216.5 		"/>
+		<path fill="#303030" d="M425.2,209.5l9.3,6h-9.3h-9.3L425.2,209.5 M425.2,207.1l-1.1,0.7l-9.3,6l-5.7,3.7h6.8h9.3h9.3h6.8
+			l-5.7-3.7l-9.3-6L425.2,207.1L425.2,207.1z"/>
+	</g>
+</g>
+</svg>

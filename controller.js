@@ -71,11 +71,10 @@ var contextCreator = setInterval(function () {
                     unitGrade: "A" // TODO(GRANT): This is just hardcoded. Needs to change.
                 });
             }
-
-            document.querySelector('main').innerHTML = Handlebars.templates.uiInterface(context);
         } catch (e) {
             console.log(e.message);
         } finally {
+            document.querySelector('main').innerHTML = Handlebars.templates.uiInterface(context);
             clearInterval(contextCreator);
         }
     }
