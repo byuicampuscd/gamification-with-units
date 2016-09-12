@@ -25,14 +25,20 @@
             }
  */
 
-var data = valence.run(function (err, data) {
-    "use strict";
+var data;
+var dataIsSet = false;
 
-    if (err === null) {
-        console.log("No error");
-        return data;
-    } else {
-        console.log("ERROR");
-        return err;
-    }
-});
+function startValence() {
+    "use strict";
+    valence.run(function (err, res) {
+        if (err === null) {
+            console.log("No error");
+            data = res;
+        } else {
+            console.log("ERROR");
+            data = err;
+        }
+        
+        dataIsSet = true;
+    });
+}

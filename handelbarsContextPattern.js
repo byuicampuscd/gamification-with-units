@@ -1,6 +1,7 @@
 /*jslint plusplus: true, browser: true, devel: true */
 /*global Handlebars*/
 
+/*
 var context = {
     studentName: "First Last",
     units: [
@@ -34,6 +35,12 @@ var context = {
             unitGrade: "A+"
         }
     ]
+};
+*/
+
+var context = {
+    studentName: "First Last",
+    units: []
 };
 
 var UNIT_WEIGHTS = {
