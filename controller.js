@@ -61,7 +61,8 @@ var contextCreator = setInterval(function () {
             }
 
             // Add the unit to the context
-            for (i = 0; i < tempUnits.length; ++i) {
+            //            for (i = 0; i < tempUnits.length; ++i) {
+            for (i = 0; i < 6; ++i) {
                 context.units.push({
                     name: "Unit " + (i + 1),
                     requiredTop: tempUnits["Unit" + (i + 1) + "Required"].numerator,
@@ -71,6 +72,7 @@ var contextCreator = setInterval(function () {
                     unitGrade: "A" // TODO(GRANT): This is just hardcoded. Needs to change.
                 });
             }
+            console.log("context:", context);
         } catch (e) {
             console.log(e.message);
         } finally {

@@ -8,30 +8,30 @@ var context = {
         {
             name: "Renaissance",
             requiredTop: 430,
-            requiredBottom: 500,
+            requiredBot: 500,
             optionalTop: 175,
-            optionalBottom: 300,
+            optionalBot: 300,
             unitGrade: "B+"
         }, {
             name: "Baroque",
             requiredTop: 0,
-            requiredBottom: 500,
+            requiredBot: 500,
             optionalTop: 0,
-            optionalBottom: 300,
+            optionalBot: 300,
             unitGrade: "F"
         }, {
             name: "Techno",
             requiredTop: 500,
-            requiredBottom: 500,
+            requiredBot: 500,
             optionalTop: 300,
-            optionalBottom: 300,
+            optionalBot: 300,
             unitGrade: "A+"
         }, {
             name: "Country",
             requiredTop: 500,
-            requiredBottom: 500,
+            requiredBot: 500,
             optionalTop: 0,
-            optionalBottom: 300,
+            optionalBot: 300,
             unitGrade: "A+"
         }
     ]
@@ -51,20 +51,20 @@ var UNIT_WEIGHTS = {
 //Caculated Unit Scores
 Handlebars.registerHelper('unitPercent', function () {
     "use strict";
-    var requiredPer = this.requiredTop / this.requiredBottom * UNIT_WEIGHTS.REQUIRED / 100,
-        optionalPer = this.optionalTop / this.optionalBottom * UNIT_WEIGHTS.OPTIONAL / 100;
+    var requiredPer = this.requiredTop / this.requiredBot * UNIT_WEIGHTS.REQUIRED / 100,
+        optionalPer = this.optionalTop / this.optionalBot * UNIT_WEIGHTS.OPTIONAL / 100;
     return ((requiredPer + optionalPer) * 100).toFixed(0);
 });
 
 Handlebars.registerHelper('unitRequiredTop', function () {
     "use strict";
-    var required = this.requiredTop / this.requiredBottom * UNIT_WEIGHTS.REQUIRED;
+    var required = this.requiredTop / this.requiredBot * UNIT_WEIGHTS.REQUIRED;
     return required.toFixed(0);
 });
 
 Handlebars.registerHelper('unitOptionalTop', function () {
     "use strict";
-    var optional = this.optionalTop / this.optionalBottom * UNIT_WEIGHTS.OPTIONAL;
+    var optional = this.optionalTop / this.optionalBot * UNIT_WEIGHTS.OPTIONAL;
     return optional.toFixed(0);
 });
 
@@ -76,7 +76,7 @@ Handlebars.registerHelper('width', function (fill, xStart) {
 
 Handlebars.registerHelper('fillRequired', function () {
     "use strict";
-    var percent = this.requiredTop / this.requiredBottom,
+    var percent = this.requiredTop / this.requiredBot,
         x1 = 94,
         x2 = 386,
         diff = x2 - x1;
@@ -85,7 +85,7 @@ Handlebars.registerHelper('fillRequired', function () {
 
 Handlebars.registerHelper('fillOptional', function () {
     "use strict";
-    var percent = this.optionalTop / this.optionalBottom,
+    var percent = this.optionalTop / this.optionalBot,
         x1 = 419,
         x2 = 574,
         diff = x2 - x1;
@@ -94,7 +94,7 @@ Handlebars.registerHelper('fillOptional', function () {
 
 function makefillUnitRequired(data) {
     "use strict";
-    var percent = data.requiredTop / data.requiredBottom * UNIT_WEIGHTS.REQUIRED / 100,
+    var percent = data.requiredTop / data.requiredBot * UNIT_WEIGHTS.REQUIRED / 100,
         x1 = 94,
         x2 = 574,
         diff = x2 - x1;
@@ -108,7 +108,7 @@ Handlebars.registerHelper('fillUnitRequired', function () {
 
 Handlebars.registerHelper('widthUnitOptional', function () {
     "use strict";
-    var percent = this.optionalTop / this.optionalBottom * UNIT_WEIGHTS.OPTIONAL / 100,
+    var percent = this.optionalTop / this.optionalBot * UNIT_WEIGHTS.OPTIONAL / 100,
         x1 = 94,
         x2 = 574,
         diff = x2 - x1;
@@ -117,11 +117,9 @@ Handlebars.registerHelper('widthUnitOptional', function () {
 
 Handlebars.registerHelper('transformUnitOptional', function () {
     "use strict";
-    var percent = this.optionalTop / this.optionalBottom * UNIT_WEIGHTS.OPTIONAL / 100,
+    var percent = this.optionalTop / this.optionalBot * UNIT_WEIGHTS.OPTIONAL / 100,
         x1 = 94,
         x2 = 574,
         diff = x2 - x1;
     return percent * diff;
 });
-
-

@@ -75,25 +75,33 @@
             </g>
             <g id="unitMandatory" transform="translate({{fillUnitRequired}} 144.043)">
                 <text transform="scale(0.83 1)" text-anchor="middle" font-size="20" class="green">
-                    {{#if unitGrade}} {{unitRequiredTop}}&#x2F;70 {{/if}}
+                    {{#if unitGrade}} 
+                        {{unitRequiredTop}}&#x2F;70 
+                    {{/if}}
                 </text>
                 <polygon points="-14 2 14 2 0 10" class="green triangle" />
             </g>
             <g id="unitElective" transform="translate(403 233)">
                 <text transform="scale(0.83 1)" text-anchor="middle" font-size="20" class="lightBlue">
-                    {{#if unitGrade}} {{unitOptionalTop}}&#x2F;30 {{/if}}
+                    {{#if unitGrade}}
+                        {{unitOptionalTop}}&#x2F;30 
+                    {{/if}}
                 </text>
                 <polygon points="-14 -16 14 -16 0 -24" class="lightBlue triangle" />
             </g>
             <g id="mandatory" class="pointer" transform="translate({{fillRequired}} 264)">
                 <text transform="scale(0.83 1)" text-anchor="middle" font-size="20" class="green">
-                    {{#if unitGrade}} {{requiredTop}}&#x2F;{{requiredBottom}} {{/if}}
+                    {{#if unitGrade}}
+                        {{requiredTop}}&#x2F;{{requiredBottom}} 
+                    {{/if}}
                 </text>
                 <polygon points="-14 2 14 2 0 10" class="green triangle" />
             </g>
             <g id="elective" transform="translate({{fillOptional}} 264.25)">
                 <text transform="scale(0.83 1)" text-anchor="middle" font-size="20" class="lightBlue">
-                    {{#if unitGrade}} {{optionalTop}}&#x2F;{{optionalBottom}} {{/if}}
+                    {{#if unitGrade}}
+                        {{optionalTop}}&#x2F;{{optionalBottom}} 
+                    {{/if}}
                 </text>
                 <polygon points="-14 2 14 2 0 10" class="lightBlue triangle" />
             </g>
