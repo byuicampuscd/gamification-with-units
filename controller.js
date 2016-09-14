@@ -1,12 +1,8 @@
 /*jslint plusplus: true, browser: true, devel: true */
 /*global Handlebars, context, data, startValence, dataIsSet */
 
-startValence();
-
-var contextCreator = setInterval(function () {
-    "use strict";
-
-    var nameOfStudent = "",
+var callback = function (data) {
+    var nameOfStudent = data.getFirstName() + " " + data.getLastName(),
         context = {
             studentName: nameOfStudent,
             units: []
@@ -15,10 +11,15 @@ var contextCreator = setInterval(function () {
         grades = data.getGrades(),
         i,
         catName,
-        tempUnits = {
-            length: 0
-        };
+        tempUnits = {},
+        numUnits = 6,
+        validCatName;
 
+    /**
+     * findCategory
+     *    This will find the category name based on the grade item given. If it is not found, and empty
+     *  string is returned.
+     **/
     function findCategory(gradeItem) {
         var i;
         for (i = 0; i < categories.length; ++i) {
@@ -30,27 +31,51 @@ var contextCreator = setInterval(function () {
         return "";
     }
 
-    if (dataIsSet) {
-        try {
-            nameOfStudent = data.getFirstName() + " " + data.getLastName();
-            context.studentName = nameOfStudent;
-            categories = data.getCategories();
-            grades = data.getGrades();
+    /**
+     * isValidCat
+     *    This will check if the category name given (catName) is in the list of valid categories.
+     **/
+    function isValidCat(catName) {
+        var i,
+            catNames = [
+                "Unit1Required",
+                "Unit1Optional",
+                "Unit2Required",
+                "Unit2Optional",
+                "Unit3Required",
+                "Unit3Optional",
+                "Unit4Required",
+                "Unit4Optional",
+                "Unit5Required",
+                "Unit5Optional",
+                "Unit6Required",
+                "Unit6Optional"
+            ];
+        for (i = 0; i < catNames.length; ++i) {
+            if (catNames[i] === catName) {
+                return true;
+            }
+        }
 
-            // Go through the different grades
-            for (i = 0; i < grades.length; ++i) {
-                catName = findCategory(grades[i]);
+        return false;
+    }
 
-                // Check if the Unit already exists or not
-                if (tempUnits[catName] === undefined) {
-                    tempUnits[catName] = {
-                        numerator: 0,
-                        denominator: 0
-                    };
-                    tempUnits.length++;
-                }
+    try {
+        // Go through the different grades
+        for (i = 0; i < grades.length; ++i) {
+            catName = findCategory(grades[i]);
+            validCatName = isValidCat(catName);
 
-                // Check if grade is graded
+            // Check if the Unit already exists or not and if it is a valid category name
+            if (tempUnits[catName] === undefined && validCatName) {
+                tempUnits[catName] = {
+                    numerator: 0,
+                    denominator: 0
+                };
+            }
+
+            // If the category name is valid, check if grade is graded
+            if (validCatName) {
                 if (grades[i].weightedNumerator !== null) {
                     tempUnits[catName].numerator += grades[i].weightedNumerator;
                     tempUnits[catName].denominator += grades[i].weightedDenominator;
@@ -59,25 +84,29 @@ var contextCreator = setInterval(function () {
                     tempUnits[catName].denominator += grades[i].pointsDenominator;
                 }
             }
-
-            // Add the unit to the context
-            //            for (i = 0; i < tempUnits.length; ++i) {
-            for (i = 0; i < 6; ++i) {
-                context.units.push({
-                    name: "Unit " + (i + 1),
-                    requiredTop: tempUnits["Unit" + (i + 1) + "Required"].numerator,
-                    requierdBot: tempUnits["Unit" + (i + 1) + "Required"].denominator,
-                    optionalTop: tempUnits["Unit" + (i + 1) + "Optional"].numerator,
-                    optionalBot: tempUnits["Unit" + (i + 1) + "Optional"].denominator,
-                    unitGrade: "A" // TODO(GRANT): This is just hardcoded. Needs to change.
-                });
-            }
-            console.log("context:", context);
-        } catch (e) {
-            console.log(e.message);
-        } finally {
-            document.querySelector('main').innerHTML = Handlebars.templates.uiInterface(context);
-            clearInterval(contextCreator);
         }
+
+        // Add the unit to the context
+        for (i = 0; i < numUnits; ++i) {
+            context.units.push({
+                name: "Unit " + (i + 1),
+                requiredTop: tempUnits["Unit" + (i + 1) + "Required"].numerator,
+                requiredBot: tempUnits["Unit" + (i + 1) + "Required"].denominator,
+                optionalTop: tempUnits["Unit" + (i + 1) + "Optional"].numerator,
+                optionalBot: tempUnits["Unit" + (i + 1) + "Optional"].denominator,
+                unitGrade: "A" // TODO(GRANT): This is just hardcoded. Needs to change.
+            });
+        }
+        console.log("context:", context);
+    } catch (e) {
+        console.log(e.message);
+        // TODO(Grant): Perhaps we should change context to display an error message if something
+        //              went wrong?
+    } finally {
+        // We should always show something to the user and we will always want to clear the 
+        // interval so we aren't in an infinte loop.
+        document.querySelector('main').innerHTML = Handlebars.templates.uiInterface(context);
     }
-}, 1500);
+}
+
+startValence(callback);

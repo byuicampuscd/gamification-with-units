@@ -21,15 +21,16 @@
                 <!--        <path d="M387.8 279.2v43.2H93v-43.2H387.8M393.fillUnitOptional7 273.3h-4.4 -298H87v3.4 48.3 3.4h4.4 298 4.4v-3.4 -48.3V273.3L393.7 273.3z" class="bgLight" />-->
 
                 <!-- fills -->
-                <rect x="93" y="162.5" width="{{width (fillUnitRequired) 93}}" height="38.5" class="green" />
-                <rect x="{{fillUnitRequired}}" y="162.5" width="{{widthUnitOptional}}" height="38.5" class="blue" />
-                <rect x="93" y="282" width="{{width (fillRequired) 93}}" height="38" class="green" />
-                <rect x="418" y="282" width="{{width (fillOptional) 418}}" height="38" class="blue" />
+                <rect x="94" y="163" width="{{unitRequiredWidth}}" height="39" class="green" />
+                <rect x="{{unitOptionalLeft}}" y="163" width="{{unitOptionalWidth}}" height="39" class="blue" />
+                <rect x="94" y="282" width="{{requiredWidth}}" height="38" class="green" />
+                <rect x="418" y="282" width="{{optionalWidth}}" height="38" class="blue" />
 
                 <!-- white outlines -->
                 <path d="M580.2 154.1v3.4 48.3 3.4h-3.4H90.4 87v-3.4 -48.3 -3.4h3.4 486.4H580.2M583.6 150.7h-3.4 -3.4H90.4 87h-3.4v3.4 3.4 48.3 3.4 3.4H87h3.4 486.4 3.4 3.4v-3.4 -3.4 -48.3 -3.4V150.7L583.6 150.7z" class="white" />
                 <path d="M393.7 273.3v3.4 48.3 3.4h-4.4 -298H87v-3.4 -48.3 -3.4h4.4 298H393.7M397.1 269.9h-3.4 -4.4 -298H87h-3.4v3.4 3.4 48.3 3.4 3.4H87h4.4 298 4.4 3.4v-3.4 -3.4 -48.3 -3.4V269.9L397.1 269.9z" class="white" />
                 <path d="M580.2 273.3v3.4 48.3 3.4h-2.4H414.2h-2.4v-3.4 -48.3 -3.4h2.4 163.6H580.2M583.6 269.9h-3.4 -2.4H414.2h-2.4 -3.4v3.4 3.4 48.3 3.4 3.4h3.4 2.4 163.6 2.4 3.4v-3.4 -3.4 -48.3 -3.4V269.9L583.6 269.9z" class="white" />
+                <!-- TEXT -->
                 <text transform="matrix(0.83 0 0 1 93.1226 65.3384)" font-size="31" class="white">
                     {{name}}
                 </text>
@@ -70,42 +71,36 @@
             </g>
             <g id="unitGrade">
                 <text transform="scale(0.96)" x="750" y="310" text-anchor="middle" font-size="170" letter-spacing="-4.2" class="white">
-                    {{unitGrade}}
+                    {{gradeLetter}}
                 </text>
             </g>
-            <g id="unitMandatory" transform="translate({{fillUnitRequired}} 144.043)">
+            <g id="unitMandatory" transform="translate({{triangleLeft " BARS_LEFT " (unitRequiredWidth)}} 144.043)">
                 <text transform="scale(0.83 1)" text-anchor="middle" font-size="20" class="green">
-                    {{#if unitGrade}} 
-                        {{unitRequiredTop}}&#x2F;70 
-                    {{/if}}
+                    {{#if unitGrade}} {{unitRequiredTop}}&#x2F;70 {{/if}}
                 </text>
                 <polygon points="-14 2 14 2 0 10" class="green triangle" />
             </g>
-            <g id="unitElective" transform="translate(403 233)">
+            <g id="unitElective" transform="translate({{triangleLeft (unitOptionalLeft) (unitOptionalWidth)}} 233)">
                 <text transform="scale(0.83 1)" text-anchor="middle" font-size="20" class="lightBlue">
-                    {{#if unitGrade}}
-                        {{unitOptionalTop}}&#x2F;30 
-                    {{/if}}
+                    {{#if unitGrade}} {{unitOptionalTop}}&#x2F;30 {{/if}}
                 </text>
                 <polygon points="-14 -16 14 -16 0 -24" class="lightBlue triangle" />
             </g>
-            <g id="mandatory" class="pointer" transform="translate({{fillRequired}} 264)">
+            <g id="mandatory" class="pointer" transform="translate({{triangleLeft " BARS_LEFT " (requiredWidth)}} 264)">
                 <text transform="scale(0.83 1)" text-anchor="middle" font-size="20" class="green">
-                    {{#if unitGrade}}
-                        {{requiredTop}}&#x2F;{{requiredBottom}} 
-                    {{/if}}
+                    {{#if unitGrade}} {{requiredTop}}&#x2F;{{requiredBot}} {{/if}}
                 </text>
                 <polygon points="-14 2 14 2 0 10" class="green triangle" />
             </g>
-            <g id="elective" transform="translate({{fillOptional}} 264.25)">
+            <g id="elective" transform="translate({{triangleLeft " OPTIONAL_LEFT " (optionalWidth)}} 264.25)">
                 <text transform="scale(0.83 1)" text-anchor="middle" font-size="20" class="lightBlue">
-                    {{#if unitGrade}}
-                        {{optionalTop}}&#x2F;{{optionalBottom}} 
-                    {{/if}}
+                    {{#if unitGrade}} {{optionalTop}}&#x2F;{{optionalBot}} {{/if}}
                 </text>
                 <polygon points="-14 2 14 2 0 10" class="lightBlue triangle" />
             </g>
         </svg>
+
         {{/each}}
     </div>
+    <!--<img src="ui.jpg">-->
 </div>

@@ -28,7 +28,7 @@
 var data;
 var dataIsSet = false;
 
-function startValence() {
+function startValence(callback) {
     "use strict";
     valence.run(function (err, res) {
         if (err === null) {
@@ -38,7 +38,8 @@ function startValence() {
             console.log("ERROR");
             data = err;
         }
-        
+
+        callback(data)
         dataIsSet = true;
     });
 }
