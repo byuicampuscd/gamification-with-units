@@ -1,48 +1,6 @@
 /*jslint plusplus: true, browser: true, devel: true */
 /*global Handlebars*/
 
-var context = {
-    studentName: "First Last",
-    units: [
-        {
-            name: "Renaissance",
-            requiredTop: 430,
-            requiredBot: 500,
-            optionalTop: 175,
-            optionalBot: 300,
-            unitGrade: "B+"
-        }, {
-            name: "Baroque",
-            requiredTop: 0,
-            requiredBot: 500,
-            optionalTop: 0,
-            optionalBot: 300,
-            unitGrade: "F"
-        }, {
-            name: "Techno",
-            requiredTop: 500,
-            requiredBot: 500,
-            optionalTop: 300,
-            optionalBot: 300,
-            unitGrade: "A+"
-        }, {
-            name: "Country",
-            requiredTop: 500,
-            requiredBot: 500,
-            optionalTop: 0,
-            optionalBot: 300,
-            unitGrade: "A+"
-        }, {
-            name: "Mising Grade",
-            requiredTop: 0,
-            requiredBot: 0,
-            optionalTop: 0,
-            optionalBot: 0,
-            unitGrade: ""
-        }
-    ]
-};
-
 var constant = {
     BARS_LEFT: 94,
     BARS_RIGHT: 574,
@@ -75,38 +33,52 @@ function isMissingOrZero(thing) {
 }
 
 /********************** GRADE LETTER *******************************/
-Handlebars.registerHelper('gradeLetter', function () {
-    "use strict";
-    var totalPercent = ((this.requiredTop / this.requiredBot) * constant.UNIT_WEIGHTS.REQUIRED +
-        (this.optionalTop / this.optionalBot) * constant.UNIT_WEIGHTS.OPTIONAL);
+function getUnitGrade(thing) {
+    var letter = "",
+        totalPercent = ((thing.requiredTop / thing.requiredBot) * constant.UNIT_WEIGHTS.REQUIRED +
+            (thing.optionalTop / thing.optionalBot) * constant.UNIT_WEIGHTS.OPTIONAL);
 
-    if (totalPercent >= constant.SCALE.A) {
-        this.unitGrade = "A";
+    if (thing.requiredBot === 0 && thing.optionalBot === 0) {
+        letter = "";
+    } else if (totalPercent >= constant.SCALE.A) {
+        letter = "A";
     } else if (totalPercent >= constant.SCALE.AMINUS) {
-        this.unitGrade = "A-";
+        letter = "A-";
     } else if (totalPercent >= constant.SCALE.BPLUS) {
-        this.unitGrade = "B+";
+        letter = "B+";
     } else if (totalPercent >= constant.SCALE.B) {
-        this.unitGrade = "B";
+        letter = "B";
     } else if (totalPercent >= constant.SCALE.BMINUS) {
-        this.unitGrade = "B-";
+        letter = "B-";
     } else if (totalPercent >= constant.SCALE.CPLUS) {
-        this.unitGrade = "C+";
+        letter = "C+";
     } else if (totalPercent >= constant.SCALE.C) {
-        this.unitGrade = "C";
+        letter = "C";
     } else if (totalPercent >= constant.SCALE.CMINUS) {
-        this.unitGrade = "C-";
+        letter = "C-";
     } else if (totalPercent >= constant.SCALE.DPLUS) {
-        this.unitGrade = "D+";
+        letter = "D+";
     } else if (totalPercent >= constant.SCALE.D) {
-        this.unitGrade = "D";
+        letter = "D";
     } else if (totalPercent >= constant.SCALE.DMINUS) {
-        this.unitGrade = "D-";
+        letter = "D-";
     } else {
-        this.unitGrade = "F";
+        letter = "F";
     }
 
-    return this.unitGrade;
+    return letter;
+}
+
+Handlebars.registerHelper('ifUnitGrade', function (block) {
+    "use strict";
+    if (getUnitGrade(this) !== "") {
+        return block.fn(this);
+    }
+});
+
+Handlebars.registerHelper('unitGrade', function () {
+    "use strict";
+    return getUnitGrade(this);
 });
 
 /********************** BAR WIDTHS *******************************/
@@ -202,6 +174,13 @@ Handlebars.registerHelper('triangleLeft', function (leftIn, offset) {
     offset = parseFloat(offset);
 
     return left + offset;
+});
+
+/************************************ OTHER *********************************************/
+Handlebars.registerHelper('addOne', function (numIn) {
+    "use strict";
+
+    return parseInt(numIn, 10) + 1;
 });
 
 /************************************ OLD *********************************************

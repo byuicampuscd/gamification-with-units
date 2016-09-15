@@ -93,8 +93,7 @@ var callback = function (data) {
                 requiredTop: tempUnits["Unit" + (i + 1) + "Required"].numerator,
                 requiredBot: tempUnits["Unit" + (i + 1) + "Required"].denominator,
                 optionalTop: tempUnits["Unit" + (i + 1) + "Optional"].numerator,
-                optionalBot: tempUnits["Unit" + (i + 1) + "Optional"].denominator,
-                unitGrade: "A" // TODO(GRANT): This is just hardcoded. Needs to change.
+                optionalBot: tempUnits["Unit" + (i + 1) + "Optional"].denominator
             });
         }
         console.log("context:", context);
@@ -103,8 +102,6 @@ var callback = function (data) {
         // TODO(Grant): Perhaps we should change context to display an error message if something
         //              went wrong?
     } finally {
-        // We should always show something to the user and we will always want to clear the 
-        // interval so we aren't in an infinte loop.
         document.querySelector('main').innerHTML = Handlebars.templates.uiInterface(context);
     }
 }
