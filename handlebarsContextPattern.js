@@ -1,31 +1,5 @@
 /*jslint plusplus: true, browser: true, devel: true */
-/*global Handlebars*/
-
-var constant = {
-    BARS_LEFT: 94,
-    BARS_RIGHT: 574,
-    REQUIRED_RIGHT: 386,
-    OPTIONAL_LEFT: 419,
-    MISSING_WIDTH: 0,
-    UNIT_WEIGHTS: {
-        REQUIRED: 70,
-        OPTIONAL: 30
-    },
-    SCALE: {
-        A: 93.0,
-        AMINUS: 90.0,
-        BPLUS: 87.0,
-        B: 83.0,
-        BMINUS: 80.0,
-        CPLUS: 77.0,
-        C: 73.0,
-        CMINUS: 70.0,
-        DPLUS: 67.0,
-        D: 63.0,
-        DMINUS: 60.0,
-        F: 0.0
-    }
-};
+/*global Handlebars, constant*/
 
 function isMissingOrZero(thing) {
     "use strict";
@@ -33,12 +7,13 @@ function isMissingOrZero(thing) {
 }
 
 /********************** GRADE LETTER *******************************/
-function getUnitGrade(thing) {
+Handlebars.registerHelper('unitGrade', function () {
+    "use strict";
     var letter = "",
-        totalPercent = ((thing.requiredTop / thing.requiredBot) * constant.UNIT_WEIGHTS.REQUIRED +
-            (thing.optionalTop / thing.optionalBot) * constant.UNIT_WEIGHTS.OPTIONAL);
+        totalPercent = ((this.requiredTop / this.requiredBot) * constant.UNIT_WEIGHTS.REQUIRED +
+            (this.optionalTop / this.optionalBot) * constant.UNIT_WEIGHTS.OPTIONAL);
 
-    if (thing.requiredBot === 0 && thing.optionalBot === 0) {
+    if (this.requiredBot === 0 && this.optionalBot === 0) {
         letter = "";
     } else if (totalPercent >= constant.SCALE.A) {
         letter = "A";
@@ -67,18 +42,6 @@ function getUnitGrade(thing) {
     }
 
     return letter;
-}
-
-Handlebars.registerHelper('ifUnitGrade', function (block) {
-    "use strict";
-    if (getUnitGrade(this) !== "") {
-        return block.fn(this);
-    }
-});
-
-Handlebars.registerHelper('unitGrade', function () {
-    "use strict";
-    return getUnitGrade(this);
 });
 
 /********************** BAR WIDTHS *******************************/

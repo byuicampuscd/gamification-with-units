@@ -1,7 +1,8 @@
 /*jslint plusplus: true, browser: true, devel: true */
-/*global Handlebars, context, data, startValence, dataIsSet */
+/*global Handlebars, context, data, startValence, dataIsSet, constant */
 
 var callback = function (data) {
+    "use strict";
     var nameOfStudent = data.getFirstName() + " " + data.getLastName(),
         context = {
             studentName: nameOfStudent,
@@ -16,43 +17,14 @@ var callback = function (data) {
         validCatName;
 
     /**
-     * findCategory
-     *    This will find the category name based on the grade item given. If it is not found, and empty
-     *  string is returned.
-     **/
-    function findCategory(gradeItem) {
-        var i;
-        for (i = 0; i < categories.length; ++i) {
-            if (categories[i].catID === gradeItem.catID) {
-                return categories[i].catName;
-            }
-        }
-
-        return "";
-    }
-
-    /**
      * isValidCat
      *    This will check if the category name given (catName) is in the list of valid categories.
      **/
     function isValidCat(catName) {
-        var i,
-            catNames = [
-                "Unit1Required",
-                "Unit1Optional",
-                "Unit2Required",
-                "Unit2Optional",
-                "Unit3Required",
-                "Unit3Optional",
-                "Unit4Required",
-                "Unit4Optional",
-                "Unit5Required",
-                "Unit5Optional",
-                "Unit6Required",
-                "Unit6Optional"
-            ];
-        for (i = 0; i < catNames.length; ++i) {
-            if (catNames[i] === catName) {
+        var i;
+
+        for (i = 0; i < constant.UNIT_NAMES.length; ++i) {
+            if (constant.UNIT_NAMES[i] === catName) {
                 return true;
             }
         }
@@ -63,7 +35,7 @@ var callback = function (data) {
     try {
         // Go through the different grades
         for (i = 0; i < grades.length; ++i) {
-            catName = findCategory(grades[i]);
+            catName = grades[i].catName;
             validCatName = isValidCat(catName);
 
             // Check if the Unit already exists or not and if it is a valid category name
@@ -104,6 +76,6 @@ var callback = function (data) {
     } finally {
         document.querySelector('main').innerHTML = Handlebars.templates.uiInterface(context);
     }
-}
+};
 
 startValence(callback);

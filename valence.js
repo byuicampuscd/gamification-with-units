@@ -196,8 +196,18 @@ module.exports = (function () {
          *    NOTHING
          **/
         function finalize(err, res) {
+            var i,
+                j;
             if (!err) {
                 data.dataIsSet = true;
+                
+                for (i = 0; i < res.grades.length; ++i) {
+                    for (j = 0; j < res.categories.length; ++j) {
+                        if (res.categories[j].catID === res.grades[i].catID) {
+                            res.grades[i].catName = res.categories[j].catName;
+                        }
+                    }
+                }
 
                 // All worked well and call the user's callback function.
                 callback(null, makeDataWrapper());
