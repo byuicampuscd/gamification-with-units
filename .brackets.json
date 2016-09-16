@@ -2,7 +2,8 @@
     "bb.beautify.onSave": true,
     "path": {
         "valence.js": {
-            "bb.beautify.onSave": false
+            "bb.beautify.onSave": false,
+            "brackets-git.gitPath": "git"
         }
     },
     "language": {

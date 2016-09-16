@@ -9,36 +9,18 @@ function isMissingOrZero(thing) {
 /********************** GRADE LETTER *******************************/
 Handlebars.registerHelper('unitGrade', function () {
     "use strict";
-    var letter = "",
+    var i,
+        letter = "",
         totalPercent = ((this.requiredTop / this.requiredBot) * constant.UNIT_WEIGHTS.REQUIRED +
             (this.optionalTop / this.optionalBot) * constant.UNIT_WEIGHTS.OPTIONAL);
 
-    if (this.requiredBot === 0 && this.optionalBot === 0) {
-        letter = "";
-    } else if (totalPercent >= constant.SCALE.A) {
-        letter = "A";
-    } else if (totalPercent >= constant.SCALE.AMINUS) {
-        letter = "A-";
-    } else if (totalPercent >= constant.SCALE.BPLUS) {
-        letter = "B+";
-    } else if (totalPercent >= constant.SCALE.B) {
-        letter = "B";
-    } else if (totalPercent >= constant.SCALE.BMINUS) {
-        letter = "B-";
-    } else if (totalPercent >= constant.SCALE.CPLUS) {
-        letter = "C+";
-    } else if (totalPercent >= constant.SCALE.C) {
-        letter = "C";
-    } else if (totalPercent >= constant.SCALE.CMINUS) {
-        letter = "C-";
-    } else if (totalPercent >= constant.SCALE.DPLUS) {
-        letter = "D+";
-    } else if (totalPercent >= constant.SCALE.D) {
-        letter = "D";
-    } else if (totalPercent >= constant.SCALE.DMINUS) {
-        letter = "D-";
-    } else {
-        letter = "F";
+    if (this.requiredBot !== 0 || this.optionalBot !== 0) {
+        for (i = 0; i < constant.SCALE.length; ++i) {
+            if (totalPercent >= constant.SCALE[i].min) {
+                letter = constant.SCALE[i].name;
+                break;
+            }
+        }
     }
 
     return letter;

@@ -8,20 +8,56 @@ var constant = {
         REQUIRED: 70,
         OPTIONAL: 30
     },
-    SCALE: {
-        A: 93.0,
-        AMINUS: 90.0,
-        BPLUS: 87.0,
-        B: 83.0,
-        BMINUS: 80.0,
-        CPLUS: 77.0,
-        C: 73.0,
-        CMINUS: 70.0,
-        DPLUS: 67.0,
-        D: 63.0,
-        DMINUS: 60.0,
-        F: 0.0
-    },
+    SCALE: [
+        {
+            name: "A",
+            min: 93.0
+        },
+        {
+            name: "A-",
+            min: 90.0
+        },
+        {
+            name: "B+",
+            min: 87.0
+        },
+        {
+            name: "B",
+            min: 83.0
+        },
+        {
+            name: "B-",
+            min: 80.0
+        },
+        {
+            name: "C+",
+            min: 77.0
+        },
+        {
+            name: "C",
+            min: 73.0
+        },
+        {
+            name: "C-",
+            min: 70.0
+        },
+        {
+            name: "D+",
+            min: 67.0
+        },
+        {
+            name: "D",
+            min: 63.0
+        },
+        {
+            name: "D-",
+            min: 60.0
+        },
+        {
+            name: "F",
+            min: 0.0
+        }
+    ],
     UNIT_NAMES: [
         "Unit1Required",
         "Unit1Optional",
