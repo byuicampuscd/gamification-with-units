@@ -1,8 +1,9 @@
-@import 'https://fonts.googleapis.com/css?family=Roboto:400,900';
+@import 'https://fonts.googleapis.com/css?family=Roboto:900';
 body,
 svg text {
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
+    background-color: #1e1e1e;
 }
 
 main {

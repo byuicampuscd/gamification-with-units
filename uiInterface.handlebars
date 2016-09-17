@@ -1,11 +1,38 @@
-<h1>{{studentName}}</h1>
 <div class="units">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300">
+        <g id="bg">
+            <rect width="900" height="300" class="bgDark" />
+        </g>
+        <g id="background">
+            <!--  light gray box in bg and lines on sides  -->
+            <rect x="39" y="24.6" width="822" height="250" class="bgLight" style="stroke-width:3.4" />
+            <line x1="28.8" y1="23.6" x2="28.8" y2="276.6" class="bgLight" />
+            <line x1="871.2" y1="23.6" x2="871.2" y2="276.6" class="bgLight" />
+            
+            <!-- TEXT -->
+            <text transform="matrix(0.83 0 0 1 93.1226 160)" font-size="38" class="white">
+                {{studentName}}
+            </text>
+            <text transform="matrix(0.83 0 0 0.9 93.1226 180)" font-size="19" class="white">
+                {{courseName}}
+            </text>
+        </g>
+        <g id="unitGrade" transform="translate(10 -80)">
+            <text transform="matrix(0.83 0 0 1 624.7793 144.043)" font-size="30.6015" class="white">
+                OVERALL GRADE
+            </text>
+            <text transform="" x="725" y="300" text-anchor="middle" font-size="155" class="white">
+                {{courseGrade}}
+            </text>
+            <path d="M821 154.1v10.8 152.7 10.8h-1.4H624.4 623v-10.8V164.8v-10.8h1.4 195.3H821M824.4 150.7H821h-1.4H624.4 623h-3.4v3.4 10.8 152.7 10.8 3.4h3.4 1.4 195.3 1.4 3.4v-3.4 -10.8V164.8v-10.8V150.7L824.4 150.7z" class="white" />
+        </g>
+    </svg>
     {{#each units}}
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
         <g id="bg">
             <rect width="900" height="400" class="bgDark" />
         </g>
-        <g id="everythingElse">
+        <g id="background">
             <!--  bg  -->
             <rect x="90.4" y="157.5" width="486.4" height="48.3" class="bgDark" />
 
@@ -100,5 +127,6 @@
             </text>
             <polygon points="-14 2 14 2 0 10" class="lightBlue triangle" />
         </g>
-    </svg> {{/each}}
+    </svg>
+    {{/each}}
 </div>

@@ -1,11 +1,17 @@
 /*jslint plusplus: true, browser: true, devel: true */
 /*global Handlebars, context, data, startValence, dataIsSet, constant */
 
+/* beautify preserve:start */
+
+/* beautify preserve:end */
+
 var callback = function (data) {
     "use strict";
     var nameOfStudent = data.getFirstName() + " " + data.getLastName(),
         context = {
             studentName: nameOfStudent,
+            courseName: data.getCourseName(),
+            courseGrade: "",
             units: []
         },
         categories = data.getCategories(),
@@ -33,6 +39,12 @@ var callback = function (data) {
     }
 
     try {
+        if (data.getFinalCalculatedGrade() !== null) {
+            context.courseGrade = data.getFinalCalculatedGrade().displayedGrade;
+        } else {
+            context.courseGrade = "?";
+        }
+
         // Go through the different grades
         for (i = 0; i < grades.length; ++i) {
             catName = grades[i].catName;

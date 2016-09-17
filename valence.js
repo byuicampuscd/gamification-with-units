@@ -350,7 +350,7 @@ module.exports = (function () {
                     },
                     finalCalculatedGrade: function (asynCallback) {
                         request
-                            .get('/d2l/api/le/1.5/' + data.orgUnitId + '/grades/final/values/myGradeValue')
+                            .get('/d2l/api/le/1.12/' + data.orgUnitId + '/grades/final/values/myGradeValue')
                             .use(auth)
                             .end(function (err, res) {
                                 log('final calculated grade', err, res);
@@ -365,25 +365,12 @@ module.exports = (function () {
                                     data.finalCalculatedGrade.weightedNumerator   = finalCalculatedGrade.WeightedNumerator;
                                     data.finalCalculatedGrade.weightedDenominator = finalCalculatedGrade.WeightedDenominator;
                                     data.finalCalculatedGrade.gradeID             = finalCalculatedGrade.GradeObjectIdentifier;
-                                    data.finalCalculatedGrade.gradeName           = finalCalculatedGrade.GradeObjectName;       
+                                    data.finalCalculatedGrade.gradeName           = finalCalculatedGrade.GradeObjectName;
+                                    data.finalCalculatedGrade.displayedGrade      = finalCalculatedGrade.DisplayedGrade;
                                     
                                     asynCallback(null, data.finalCalculatedGrade);
                                 } else if (res.statusCode === 404) {
-                                    data.finalCalculatedGrade = {
-                                        gradeID: "Final",
-                                        gradeName: "Final Calculated Grade",
-                                        catID: "",
-                                        maxPoints: null,
-                                        weight: null,
-                                        excludeFromFinalGradeCalculation: null,
-                                        pointsDenominator: 100,
-                                        pointsNumerator: 100,
-                                        weightedDenominator: 100,
-                                        weightedNumerator: 100,
-                                        description: "Final Calculated Grade",
-                                        gradeType: "Final Calculated Grade",
-                                        isGraded: true
-                                    };
+                                    data.finalCalculatedGrade = null;
                                     asynCallback(null, data.finalCalculatedGrade);
                                 } else {
                                     asynCallback(err, null);
