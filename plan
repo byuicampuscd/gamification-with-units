@@ -1,0 +1,20 @@
+STUDENT WORKFLOW
+
+* Visits site
+** Checks to see if this is first visit or not
+
+** If first visit do the following:
+*** Display choose grade item screen
+*** Once items are choosen, student click submit button
+*** Once submitted, screen will dislpay total points and current grade on choosen grade items.
+*** Should update on visit
+
+** If not first visit do the following:
+*** Display total points and current grade on choosen grade items.
+*** Should update on visit
+
+TEACHER WORKFLOW
+
+* Visits site
+** Grabs all the student's grades
+** Computes the grades for every student

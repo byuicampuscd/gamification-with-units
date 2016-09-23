@@ -72,4 +72,23 @@ var constant = {
         "Unit6Required",
         "Unit6Optional"
     ]
+        /*
+        CAT_NAMES: [
+            "Unit1Required",
+            "Unit1Optional",
+            "Unit2Required",
+            "Unit2Optional",
+            "Unit3Required",
+            "Unit3Optional",
+            "Unit4Required",
+            "Unit4Optional",
+            "Unit5Required",
+            "Unit5Optional",
+            "Unit6Required",
+            "Unit6Optional"
+        ],
+        UNIT_NAMES: [
+            
+        ]
+        */
 };

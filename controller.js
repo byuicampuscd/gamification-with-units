@@ -9,8 +9,8 @@ var callback = function (data) {
     "use strict";
     var nameOfStudent = data.getFirstName() + " " + data.getLastName(),
         context = {
-            studentName: nameOfStudent,
-            courseName: data.getCourseName(),
+            studentName: nameOfStudent.toUpperCase(),
+            courseName: data.getCourseName().toUpperCase(),
             courseGrade: "",
             units: []
         },
@@ -73,7 +73,7 @@ var callback = function (data) {
         // Add the unit to the context
         for (i = 0; i < numUnits; ++i) {
             context.units.push({
-                name: "Unit " + (i + 1),
+                name: "UNIT " + (i + 1),
                 requiredTop: tempUnits["Unit" + (i + 1) + "Required"].numerator,
                 requiredBot: tempUnits["Unit" + (i + 1) + "Required"].denominator,
                 optionalTop: tempUnits["Unit" + (i + 1) + "Optional"].numerator,
