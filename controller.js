@@ -1,5 +1,5 @@
 /*jslint plusplus: true, browser: true, devel: true */
-/*global Handlebars, context, data, startValence, dataIsSet, constant */
+/*global Handlebars, context, data, startValence, dataIsSet, constant, scormSuspendData */
 
 /* beautify preserve:start */
 
