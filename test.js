@@ -1,3 +1,4 @@
+/*jslint plusplus: true, browser: true, devel: true */
 /*global scormSuspendData */
 
 // This is currently only the Student Workflow
