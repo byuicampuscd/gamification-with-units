@@ -1,7 +1,7 @@
 {
-    "name": "barker-ui",
+    "name": "gameification-with-units",
     "version": "1.0.0",
-    "description": "",
+    "description": "No description",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,5 +9,8 @@
         "nodemon": "nodemon -x \"handlebars uiInterface.handlebars -f handlebarsTemplate.js\" -i handlebarsTemplate.js -e js,html,handlebars,css"
     },
     "author": "Joshua McKinney",
+    "contributors": [{
+        "name": "gshawm"
+    }],
     "license": "MIT"
 }
